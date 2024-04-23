@@ -43,7 +43,7 @@ export const quiz: Quiz = {
     {
       id: 4,
       question: 'Какой язык работает в браузере?',
-      // answers: [''],
+      answers: [],
       correctAnswer: 'javascript',
     },
     {

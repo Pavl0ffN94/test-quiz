@@ -1,34 +1,31 @@
 import {Quest} from '@/app/data';
-import {QuizState} from '@/store';
+import {QuizState, useSelectorWithStore} from '@/store';
 import React from 'react';
-interface Iprops {
-  activeQuestion: boolean;
-  questions: Quest[];
-  showResult: boolean;
-  answers: string[];
-  onAnswerSelected: (answer: string[], idx: number) => void;
-  nextQuestion: () => void;
-  result: {
-    score: number;
-    correctAnswers: number;
-    wrongAnswers: number;
-  };
-  question: string;
-  checked: boolean;
-}
+// interface Iprops {
+//   activeQuestion: boolean;
+//   questions: Quest[];
+//   showResult: boolean;
+//   answers: string[];
+//   onAnswerSelected: (answer: string[], idx: number) => void;
+//   nextQuestion: () => void;
+//   result: {
+//     score: number;
+//     correctAnswers: number;
+//     wrongAnswers: number;
+//   };
+//   question: string;
+//   checked: boolean;
+// }
 
-export default function Card(props: Iprops) {
+export default function Card({questions}) {
   const {
     activeQuestion,
-    questions,
-    showResult,
-    answers,
-    onAnswerSelected,
-    nextQuestion,
-    result,
-    question,
     checked,
-  } = props;
+    result,
+    selectedAnswer,
+    selectedAnswerIndex,
+    showResult,
+  }: QuizState = useSelectorWithStore(state => state.quiz);
   return (
     <div className='container'>
       <div>
@@ -51,10 +48,7 @@ export default function Card(props: Iprops) {
                 {activeQuestion === question.length - 1 ? 'Finish' : 'Next'}
               </button>
             ) : (
-              <button
-                // onClick={nextQuestion}
-                disabled
-                className='btn-disabled'>
+              <button onClick={nextQuestion} disabled className='btn-disabled'>
                 {activeQuestion === question.length - 1 ? 'Finish' : 'Next'}
               </button>
             )}

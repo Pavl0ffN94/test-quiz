@@ -38,24 +38,13 @@ button {
   background-color: lightgray;
 }
 
-li {
+.li {
   list-style-type: none;
   cursor: pointer;
   margin: 9px 0;
   padding: 16px 8px;
-  color: #000105;
-  border: 1px solid lightgray;
 }
 
-.li-hover:hover {
-  background-color: #d8d8d8;
-  columns: #fff;
-}
-
-.li-selected {
-  color: #fff;
-  background-color: #000925;
-}
 
 .container {
   max-width: 740px;
@@ -69,10 +58,23 @@ li {
   padding: 1rem;
   margin-top: 2rem;
   border-radius: 4px;
+  color: #0c0c0c;
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.active{
+  background-color: aqua;
 }
 
 .container p {
   padding: 8px 0;
+  color:#d8d8d8
 }
 .cutoff{
   height: 5px;
